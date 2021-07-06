@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        LSBU Sensors (FW218) | Emeka
+    </title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='logo1.ico') }}"/>
+    <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <div class="myHead">
+        <div class="myTitle">
+            Sensor DashBoard
+            <br>
+            <span id='today'></span>
+        </div>
+    </div>
+{#    <div class="middle">#}
+{#        <div id='time'></div>#}
+{#        <div class="download">#}
+{#            <div id='today'></div>#}
+{#            <div class="myForm">#}
+{#                <form action="/download" name="myForm" id="myForm" method="POST">#}
+{#                    <label for="myfile">Choose a CSV to Download</label>#}
+{#                    <select name="myfile" id="myfile">#}
+{#                        {% for file in data %}#}
+{#                        <option value="{{ file }}">{{ file }}</option>#}
+{#                        {% endfor %}#}
+{#                    </select>#}
+{#                    <input type="submit" value="Download">#}
+{#                </form>#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{#    </div>#}
+    <br>
+    <div class="main">
+
+        <div class="container-group">
+            <div class="chart-container" style='margin-right: .9%;'>
+                <canvas id="myChart" height="140"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="myChart1" height="140"></canvas>
+            </div>
+        </div>
+
+        <br>
+        <div class="lone-container">
+            <canvas id="myChart2" height="100"></canvas>
+        </div>
+        &nbsp;
+        &nbsp;
+
+    </div>
+
+
+    <div class="stat">
+        <div class="container">
+            <div class="box">
+                <h2>Humidity</h2>
+                    <h3>data stat</h3>
+
+                    <table class="tg">
+                        <tbody>
+                            <tr>
+                                <td class="tg-0pky">Count</td>
+                                <td class="tg-0lax" id="hum-count-data">33.4</td>
+                                <td class="tg-0la" id="hum-count-arrow"> <img style="height: 15px;" src='/static/up.png'> 17%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">Mean</td>
+                                <td class="tg-0lax" id="hum-mean-data">53.4</td>
+                                <td class="tg-0la" id="hum-mean-arrow"> <img style="height: 15px;" src='/static/up.png'> 10%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">STD</td>
+                                <td class="tg-0lax" id="hum-std-data">13.4</td>
+                                <td class="tg-0la" id="hum-std-arrow"> <img style="height: 15px;" src='/static/down.png'> 42%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">Min</td>
+                                <td class="tg-0lax" id="hum-min-data">73.4</td>
+                                <td class="tg-0la" id="hum-min-arrow"> <img style="height: 15px;" src='/static/down.png'> 12%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">Max</td>
+                                <td class="tg-0lax" id="hum-max-data">23.4</td>
+                                <td class="tg-0la" id="hum-max-arrow"> <img style="height: 15px;" src='/static/up.png'> 92%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+            </div>
+
+            <div class="box">
+                <h2>Temperature</h2>
+                    <h3>data stat</h3>
+
+                    <table class="tg">
+                        <tbody>
+                            <tr>
+                                <td class="tg-0pky">Count</td>
+                                <td class="tg-0lax" id="temp-count-data">33.4</td>
+                                <td class="tg-0la" id="temp-count-arrow"> <img style="height: 15px;" src='/static/up.png'> 17%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">Mean</td>
+                                <td class="tg-0lax" id="temp-mean-data">53.4</td>
+                                <td class="tg-0la" id="temp-mean-arrow"> <img style="height: 15px;" src='/static/up.png'> 10%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">STD</td>
+                                <td class="tg-0lax" id="temp-std-data">13.4</td>
+                                <td class="tg-0la" id="temp-std-arrow"> <img style="height: 15px;" src='/static/down.png'> 42%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">Min</td>
+                                <td class="tg-0lax" id="temp-min-data">73.4</td>
+                                <td class="tg-0la" id="temp-min-arrow"> <img style="height: 15px;" src='/static/down.png'> 12%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">Max</td>
+                                <td class="tg-0lax" id="temp-max-data">23.4</td>
+                                <td class="tg-0la" id="temp-max-arrow"> <img style="height: 15px;" src='/static/up.png'> 92%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+            </div>
+
+            <div class="box">
+                <h2>Feels Like</h2>
+                    <h3>data stat</h3>
+
+                    <table class="tg">
+                        <tbody>
+                            <tr>
+                                <td class="tg-0pky">Count</td>
+                                <td class="tg-0lax" id="heat-count-data">33.4</td>
+                                <td class="tg-0la" id="heat-count-arrow"> <img style="height: 15px;" src='/static/up.png'> 17%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">Mean</td>
+                                <td class="tg-0lax" id="heat-mean-data">53.4</td>
+                                <td class="tg-0la" id="heat-mean-arrow"> <img style="height: 15px;" src='/static/up.png'> 10%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">STD</td>
+                                <td class="tg-0lax" id="heat-std-data">13.4</td>
+                                <td class="tg-0la" id="heat-std-arrow"> <img style="height: 15px;" src='/static/down.png'> 42%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">Min</td>
+                                <td class="tg-0lax" id="heat-min-data">73.4</td>
+                                <td class="tg-0la" id="heat-min-arrow"> <img style="height: 15px;" src='/static/down.png'> 12%</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">Max</td>
+                                <td class="tg-0lax" id="heat-max-data">23.4</td>
+                                <td class="tg-0la" id="heat-max-arrow"> <img style="height: 15px;" src='/static/up.png'> 92%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+    <div class="footer">
+        <img src="{{ url_for('static', filename='voice1.jpeg') }}" id="face"/>
+        <br>
+        Designed by Emeka Ugwuanyi
+        <p>
+            <a href="https://github.com/emylincon"><i class="fa fa-github"></i></a>
+                  &nbsp;
+        <a href="https://www.linkedin.com/in/emeka-ugwuanyi-259089121/"><i class="fa fa-linkedin"></i></a>
+        </p>
+
+    </div>
+    <br>
+    <br>
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>

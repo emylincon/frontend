@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        LSBU Sensors (FW218) | Emeka
+    </title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='logo1.ico') }}"/>
+    <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <div class="myHead">
+        <div class="myTitle" style="padding: 20px">
+            Sensor DashBoard
+            <br>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="popup">
+        <div class="myTitlesub" >
+            Configure Server Endpoint
+        </div>
+        <div class="myform">
+            <form id='form' action='/set_url' method="POST" enctype='multipart/form-data'>
+                    <input type='text' class="input" id='url' name='url' value='' placeholder="Enter Server URL Endpoint e.g http://localhost:5000/getdata" required>
+                    <input class="run" id="run" type='submit' value='GO!'>
+        </form>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+
+</html>
