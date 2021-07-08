@@ -1,1 +1,2 @@
-# Frontend 
+# Frontend
+Frontend application
