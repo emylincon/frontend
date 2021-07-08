@@ -179,19 +179,19 @@ var stats = {'data_stat': {'temperature': {'count': {'data': get_elem('#temp-cou
 							'mean': {'data': get_elem('#temp-mean-data'), 'arrow': get_elem('#temp-mean-arrow')},
 							'std': {'data': get_elem('#temp-std-data'), 'arrow': get_elem('#temp-std-arrow')},
 							'min': {'data': get_elem('#temp-min-data'), 'arrow': get_elem('#temp-min-arrow')},
-							'max': {'data': get_elem('#temp-mean-data'), 'arrow': get_elem('#temp-mean-arrow')}
+							'max': {'data': get_elem('#temp-max-data'), 'arrow': get_elem('#temp-max-arrow')}
 							},
 						'humidity': {'count': {'data': get_elem('#hum-count-data'), 'arrow': get_elem('#hum-count-arrow')},
 							'mean': {'data': get_elem('#hum-mean-data'), 'arrow': get_elem('#hum-mean-arrow')},
 							'std': {'data': get_elem('#hum-std-data'), 'arrow': get_elem('#hum-std-arrow')},
 							'min': {'data': get_elem('#hum-min-data'), 'arrow': get_elem('#hum-min-arrow')},
-							'max': {'data': get_elem('#hum-mean-data'), 'arrow': get_elem('#hum-mean-arrow')}
+							'max': {'data': get_elem('#hum-max-data'), 'arrow': get_elem('#hum-max-arrow')}
 							},
 						'heat_index': {'count': {'data': get_elem('#heat-count-data'), 'arrow': get_elem('#heat-count-arrow')},
 							'mean': {'data': get_elem('#heat-mean-data'), 'arrow': get_elem('#heat-mean-arrow')},
 							'std': {'data': get_elem('#heat-std-data'), 'arrow': get_elem('#heat-std-arrow')},
 							'min': {'data': get_elem('#heat-min-data'), 'arrow': get_elem('#heat-min-arrow')},
-							'max': {'data': get_elem('#heat-mean-data'), 'arrow': get_elem('#heat-mean-arrow')}, }
+							'max': {'data': get_elem('#heat-max-data'), 'arrow': get_elem('#heat-max-arrow')}, }
 							},
 			}
 
