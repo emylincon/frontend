@@ -1,2 +1,2 @@
 # Frontend
-Frontend application
+Frontend flask application for sensor dashboard.
