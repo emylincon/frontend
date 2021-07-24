@@ -23,13 +23,33 @@
 
     <div class="popup">
         <div class="myTitlesub" >
-            Configure Server Endpoint
+            Configure Server Details
         </div>
-        <div class="myform">
-            <form id='form' action='/set_url' method="POST" enctype='multipart/form-data'>
-                    <input type='text' class="input" id='url' name='url' value='' placeholder="Enter Server URL Endpoint e.g http://localhost:5000/getdata" required>
-                    <input class="run" id="run" type='submit' value='GO!'>
+        <div class="myForm">
+            <form id='form' action='/set_data' method="POST" enctype='multipart/form-data'>
+                <select id="display_max" name="display_max" required>
+                    <option selected="true" disabled="disabled">-- Please Select No of Display Samples --</option>
+                    {% for i in range(20, 101, 10) %}
+                        <option value={{ i }}>{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <select  id="refresh_rate" name="refresh_rate" required>
+                    <option selected="true" disabled="disabled">-- Please Select Refresh rate --</option>
+                    {% for i in range(1, 11) %}
+                        <option value={{ i }}>{{ i }}s</option>
+                    {% endfor %}
+                </select>
+                <select  id="store_max" name="store_max" required>
+                    <option selected="true" disabled="disabled">-- Please Select Max Storage Limit --</option>
+                    {% for i in range(200, 501, 100) %}
+                        <option value={{ i }}>{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <input type='text' class="input" id='url' name='url' value='' placeholder="Enter Server URL Endpoint e.g http://localhost:5000/getdata" required>
+
+                <input class="run" id="run" type='submit' value='GO!'>
         </form>
+
         </div>
 
     </div>
