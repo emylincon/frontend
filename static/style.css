@@ -6,29 +6,18 @@
     height: 100%;
     font-size: 20px;
 }
-.myForm{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-select{
-    width: 100%;
-    font-size: 20px;
-    color: cornflowerblue;
-}
+
 input{
     /*width: 100%;*/
     /*background-color: rgba(94, 124, 221, 0.9);*/
     /*border-radius: 5px;*/
     /*color: white;*/
     font-size: 15px;
-    font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 5px;
+    color: black;
+    /*font-family: 'Ubuntu', sans-serif;*/
 }
-#form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 #url{
     width: 440px;
@@ -38,15 +27,17 @@ input{
     color: white;
     border: solid #086D35;
     background-color: #086D35;
+    width: 50%;
 
 }
-/*input:hover{*/
-/*    background-color: rgba(142, 162, 228, 0.9);*/
-/*}*/
+#run:hover{
+    background-color: #006400;
+    border: solid #006400;
+}
 
 .popup{
     max-width: 550px;
-    height: 150px;
+    height: 200px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -57,9 +48,30 @@ input{
     padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /*justify-content: center;*/
     flex-direction: column;
 
+}
+
+.myForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+select{
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 5px;
+    /*color: gray;*/
+    /*font-size: 20px;*/
+    /*color: cornflowerblue;*/
 }
 
 label{
