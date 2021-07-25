@@ -168,6 +168,19 @@ dataPie = {
     ]
 };
 
+// let jsSetup = null;
+//
+// async function getSetup() {
+//     let response = await fetch('/get_js_setup');
+//     let data = await response.json();
+//     if(data.refresh_rate === -1){
+//         location.replace("/")
+//     }
+//     else{
+//         jsSetup = data;
+//     }
+// }
+
 
 const allCharts = [myChart, myChart1, myChart2]
 
@@ -215,7 +228,7 @@ function displayPredStats(pred_stats){
     });
 
 }
-const max_length = 50;
+const max_length = document.querySelector('#display-max').innerHTML * 1;
 const start = new Date("Sep 10, 2020 12:00:00").getTime();
 window.mobileCheck = function() {
   let check = false;
@@ -300,7 +313,8 @@ function update(){
     }
     // timeCount();
 }
+let refresh_rate = document.querySelector('#refresh-rate').innerHTML * 1000;
 
-setInterval(update, 1000);
+setInterval(update, refresh_rate);
 
 
