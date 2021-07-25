@@ -41,7 +41,7 @@
                 </select>
                 <select  id="store_max" name="store_max" required>
                     <option selected="true" disabled="disabled">-- Please Select Max Storage Limit --</option>
-                    {% for i in range(200, 501, 100) %}
+                    {% for i in range(1000, 5001, 1000) %}
                         <option value={{ i }}>{{ i }}</option>
                     {% endfor %}
                 </select>
