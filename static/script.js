@@ -168,19 +168,6 @@ dataPie = {
     ]
 };
 
-// let jsSetup = null;
-//
-// async function getSetup() {
-//     let response = await fetch('/get_js_setup');
-//     let data = await response.json();
-//     if(data.refresh_rate === -1){
-//         location.replace("/")
-//     }
-//     else{
-//         jsSetup = data;
-//     }
-// }
-
 
 const allCharts = [myChart, myChart1, myChart2]
 

@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.secret_key = "28wrifn43qwrpfo24wrefichl"
 app.permanent_session_lifetime = timedelta(days=30)
 
+# static display data if backend is offline
 display_data = {'actual': {'sensor': {'heat_index': 24.94215049377219, 'temperature': 21.0, 'humidity': 51.0,
                                       'datetime': '29-09-2020 10:22:37', 'id': 3018},
                            },
@@ -32,6 +33,9 @@ display_data = {'actual': {'sensor': {'heat_index': 24.94215049377219, 'temperat
 
 @app.route('/dashboard')
 def dashboard():
+    """:cvar
+    return live sensor dashboard page
+    """
     if 'url' in session:
         return render_template('index.html', display_max=session['display_max'], refresh_rate=session['refresh_rate'])
     else:
@@ -40,22 +44,28 @@ def dashboard():
 
 @app.route('/')
 def popup():
+    """
+    returns configuration page
+    """
     return render_template('popup.html')
 
 
-@app.route('/set_url', methods=['POST'])
-def set_url():
-    session['url'] = request.form['url'].strip().lower()
-    return redirect(url_for('dashboard'))
-
-
 def update_remote_storage_limit():
-    my_url = f"{session['url']}/set-max-storage/{session['store_max']}"
-    requests.get(my_url)
+    """
+    configures the max storage the the remote backend server
+    """
+    base_url = '/'.join(session['url'].split('/')[:-1])
+    my_url = f"{base_url}/set-max-storage/{session['store_max']}"
+    response = requests.get(my_url)
+    print(response.json())
 
 
 @app.route('/set_data', methods=['POST'])
 def set_data():
+    """
+    saves the configurations from the user in the session.
+    This includes url, display_max, refresh_rate and store_max
+    """
     session['url'] = request.form['url'].strip().lower()
     session['display_max'] = request.form['display_max']
     session['refresh_rate'] = request.form['refresh_rate']
@@ -66,6 +76,10 @@ def set_data():
 
 @app.route("/get-data")
 def get_data():
+    """
+    send a get request to the backend server to obtain request.
+    Then the response is forwarded to the frontend javascript for display.
+    """
     def reply(info):
         london = pytz.timezone('Europe/London')
         result = {**info, 'datetime': "{:%d-%m-%Y %H:%M:%S}".format(dt.now().astimezone(london))}

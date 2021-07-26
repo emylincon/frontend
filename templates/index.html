@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <head>
     <title>
-        LSBU Sensors (FW218) | Emeka
+        LSBU Sensor Dashboard
     </title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <link rel="shortcut icon" href="{{ url_for('static', filename='logo1.ico') }}"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='lsbu.ico') }}"/>
     <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
     <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,24 +19,7 @@
             <span id='today'></span>
         </div>
     </div>
-{#    <div class="middle">#}
-{#        <div id='time'></div>#}
-{#        <div class="download">#}
-{#            <div id='today'></div>#}
-{#            <div class="myForm">#}
-{#                <form action="/download" name="myForm" id="myForm" method="POST">#}
-{#                    <label for="myfile">Choose a CSV to Download</label>#}
-{#                    <select name="myfile" id="myfile">#}
-{#                        {% for file in data %}#}
-{#                        <option value="{{ file }}">{{ file }}</option>#}
-{#                        {% endfor %}#}
-{#                    </select>#}
-{#                    <input type="submit" value="Download">#}
-{#                </form>#}
-{#            </div>#}
-{##}
-{#        </div>#}
-{#    </div>#}
+
     <br>
     <div class="main">
 
@@ -175,13 +158,15 @@
     <br>
     <br>
     <div class="footer">
-        <img src="{{ url_for('static', filename='voice1.jpeg') }}" id="face"/>
+        <img src="{{ url_for('static', filename='lsbu.png') }}" id="face"/>
         <br>
-        Designed by Emeka Ugwuanyi
+        London South Bank University
         <p>
-            <a href="https://github.com/emylincon"><i class="fa fa-github"></i></a>
+            <a href="https://www.facebook.com/londonsouthbankuni"><i class="fa fa-facebook"></i></a>
                   &nbsp;
-        <a href="https://www.linkedin.com/in/emeka-ugwuanyi-259089121/"><i class="fa fa-linkedin"></i></a>
+        <a href="https://twitter.com/LSBU"><i class="fa fa-twitter"></i></a>
+            &nbsp;
+        <a href="https://www.linkedin.com/school/london-south-bank-university/mycompany/"><i class="fa fa-linkedin"></i></a>
         </p>
 
     </div>
