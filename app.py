@@ -33,7 +33,7 @@ display_data = {'actual': {'sensor': {'heat_index': 24.94215049377219, 'temperat
 @app.route('/dashboard')
 def dashboard():
     if 'url' in session:
-        return render_template('index.html')
+        return render_template('index.html', display_max=session['display_max'], refresh_rate=session['refresh_rate'])
     else:
         return redirect(url_for('popup'))
 
@@ -46,6 +46,21 @@ def popup():
 @app.route('/set_url', methods=['POST'])
 def set_url():
     session['url'] = request.form['url'].strip().lower()
+    return redirect(url_for('dashboard'))
+
+
+def update_remote_storage_limit():
+    my_url = f"{session['url']}/set-max-storage/{session['store_max']}"
+    requests.get(my_url)
+
+
+@app.route('/set_data', methods=['POST'])
+def set_data():
+    session['url'] = request.form['url'].strip().lower()
+    session['display_max'] = request.form['display_max']
+    session['refresh_rate'] = request.form['refresh_rate']
+    session['store_max'] = request.form['store_max']
+    update_remote_storage_limit()
     return redirect(url_for('dashboard'))
 
 
@@ -71,4 +86,5 @@ def get_data():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run()
+    # app.run(host="0.0.0.0")
