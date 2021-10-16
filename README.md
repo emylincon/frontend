@@ -12,3 +12,6 @@ Then run application
 ```commandline
 python app.py
 ```
+
+### Note
+App listens on port 5000
