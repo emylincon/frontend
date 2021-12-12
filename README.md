@@ -1,17 +1,12 @@
-# Frontend
-Frontend flask application for sensor dashboard.
-
-## To start
-
-First install application requirements
-```commandline
-pip install -r requirements.txt
+# Helm charts
+* package helm chart for deployment
+```
+helm package <helm_folder>
+```
+* install locally packaged helm chart
+```
+helm install <give_it_a_name> <output_from_package.tgz>
 ```
 
-Then run application
-```commandline
-python app.py
-```
-
-### Note
-App listens on port 5000
+## converting to github
+helm repo index .

@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  emeka-sensor-dashboard-frontend:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-12T14:34:34.020363428-08:00"
+    description: A Helm chart for deploying sensor dashboard frontend
+    digest: f7256137c2811cd645dd0df42cd6f412c86a26a92e25bfefd20c2cf715da1165
+    name: emeka-sensor-dashboard-frontend
+    type: application
+    urls:
+    - emeka-sensor-dashboard-frontend-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-12-12T14:34:34.018873757-08:00"
