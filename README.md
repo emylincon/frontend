@@ -15,3 +15,13 @@ python app.py
 
 ### Note
 App listens on port 5000
+
+## Run on kubernetes minikube
+* apply k8 manifest
+```bash
+kubectl apply -f kubernetes.yml
+```
+* browse url on minikube
+```bash
+minikube service --url frontend-service
+```
