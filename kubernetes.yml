@@ -19,6 +19,13 @@ spec:
           image: ugwuanyi/frontend
           ports:
           - containerPort: 5000
+          resources:
+            requests:
+              memory: "64Mi" 
+              cpu: "250m" # 0.25 CPU
+            limits:
+              memory: "128Mi" 
+              cpu: "500m" # 0.5 CPU
 ---
 apiVersion: v1
 kind: Service
